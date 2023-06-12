@@ -64,17 +64,23 @@ else
 fi
 unset color_prompt force_color_prompt
 
+# get a nice hostname if we can
+export HOSTNAME=$(hostname --short)
+if [ 'a'$(which nicename) != 'a' ]; then
+    export HOSTNAME=$(nicename)
+fi
+
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\$HOSTNAME: \w\a\]$PS1"
     ;;
 *)
     ;;
 esac
 
 # cbf -- my prompt goes here :-)
-PS1="\[\e[94m(\s \$SHLVL)\] \[\e[36m\u@\h \t \e[35m\$(git rev-parse --abbrev-ref HEAD 2>/dev/null)\] \e[33m\w\[\n\$\[\e[m\]"
+PS1="\[\e[94m(\s \$SHLVL)\] \[\e[36m\u@\$HOSTNAME \t \e[35m\$(git rev-parse --abbrev-ref HEAD 2>/dev/null)\] \e[33m\w\[\n\$\[\e[m\]"
 
 # to more easily recover from things that mangle the PATH
 export BASE_PATH=$PATH
