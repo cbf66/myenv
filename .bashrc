@@ -74,7 +74,7 @@ xterm*|rxvt*)
 esac
 
 # cbf -- my prompt goes here :-)
-PS1="\[\e[94m(\s \$SHLVL)\] \[\e[36m\u \t \e[35m\$(git rev-parse --abbrev-ref HEAD 2>/dev/null)\] \e[33m\w\[\n\$\[\e[m\]"
+PS1="\[\e[94m(\s \$SHLVL)\] \[\e[36m\u@\h \t \e[35m\$(git rev-parse --abbrev-ref HEAD 2>/dev/null)\] \e[33m\w\[\n\$\[\e[m\]"
 
 # to more easily recover from things that mangle the PATH
 export BASE_PATH=$PATH
