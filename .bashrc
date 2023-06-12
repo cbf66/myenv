@@ -82,6 +82,9 @@ esac
 # cbf -- my prompt goes here :-)
 PS1="\[\e[94m(\s \$SHLVL)\] \[\e[36m\u@\$HOSTNAME \t \e[35m\$(git rev-parse --abbrev-ref HEAD 2>/dev/null)\] \e[33m\w\[\n\$\[\e[m\]"
 
+# set window title for PuTTY and others
+export PROMPT_COMMAND='printf "\033]0;%s@%s\007" "${USER}" "${HOSTNAME%%.*}"'
+
 # to more easily recover from things that mangle the PATH
 export BASE_PATH=$PATH
 
