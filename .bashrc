@@ -133,4 +133,6 @@ if [ -f $PYENV_ROOT ]; then
     eval "$(pyenv init -)"
 
     eval "$(pyenv virtualenv-init -)"
+elif
+    unset PYENV_ROOT
 fi
