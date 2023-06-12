@@ -121,7 +121,14 @@ if ! shopt -oq posix; then
 fi
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/cbf/google-cloud-sdk/path.bash.inc' ]; then . '/home/cbf/google-cloud-sdk/path.bash.inc'; fi
+if [ -f '$HOME/google-cloud-sdk/path.bash.inc' ]; then . '$HOME/google-cloud-sdk/path.bash.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/cbf/google-cloud-sdk/completion.bash.inc' ]; then . '/home/cbf/google-cloud-sdk/completion.bash.inc'; fi
+if [ -f '$HOME/google-cloud-sdk/completion.bash.inc' ]; then . '$HOME/google-cloud-sdk/completion.bash.inc'; fi
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+eval "$(pyenv virtualenv-init -)"
