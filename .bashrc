@@ -159,3 +159,10 @@ if [ -d ${HOME}/perl5 ]; then
         PERL_MM_OPT="INSTALL_BASE=${HOME}/perl5"; export PERL_MM_OPT;
     fi
 fi
+
+# To fix emacs scaling
+# we should probably query xrandr and do some fancy calculations here,
+# but that's really hard in a bash script
+# Maybe write a Python program some day?
+export GDK_SCALE=1.7
+export GDK_DPI_SCALE=1.7
